@@ -1,0 +1,41 @@
+= EXPRESS grammar in ANTLR4
+
+//image:https://github.com/lutaml/expressir/workflows/ubuntu/badge.svg[ubuntu]
+//image:https://github.com/lutaml/expressir/workflows/macos/badge.svg[macos]
+//image:https://github.com/lutaml/expressir/workflows/windows/badge.svg[windows]
+
+== Purpose
+
+This is the EXPRESS grammar file according to ISO 10303-11, and is
+tested to work with all ISO 10303 SMRL EXPRESS files that are
+valid.
+
+These files in SMRL have been determined to be deviated from the grammar
+and are therefore invalid.
+
+== Contributing
+
+First, thank you for contributing! We love pull requests from everyone. By
+participating in this project, you hereby grant
+https://www.ribose.com[Ribose Inc.] the right to grant or transfer an unlimited
+number of non exclusive licenses or sub-licenses to third parties, under the
+copyright covering the contribution to use the contribution by all means.
+
+Here are a few technical guidelines to follow:
+
+* Open an https://github.com/lutaml/expressir/issues[issues] to discuss a new
+  feature.
+* Write tests to support your new feature.
+* Make sure the entire test suite passes locally and on CI.
+* Open a Pull Request.
+* https://github.com/thoughtbot/guides/tree/master/protocol/git#write-a-feature[Squash your commits] after receiving feedback.
+* Party!
+
+
+== License
+
+This grammar is developed by Ribose Inc. and open sourced under a BSD-2 clause license.
+
+== Credits
+
+We thank the support provided by NIST, Boeing and ISO/TC 184/SC 4/TF 1.
