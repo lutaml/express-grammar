@@ -1,0 +1,67 @@
+= Development
+
+The parser can be generated in any language supported as ANTLR4 target.
+
+[source,shell]
+----
+java -jar ~/.m2/repository/org/antlr/antlr4/4.7.3-SNAPSHOT/antlr4-4.7.3-SNAPSHOT-complete.jar \
+    -listener \
+    -visitor \
+    -Dlanguage=JS \
+    Express.g4
+----
+
+Generated Parser and Lexer classes can be used as follows:
+
+[source,js]
+----
+const { CharStreams, CommonTokenStream } = require('antlr4');
+const { ExpressLexer } = require('./ExpressLexer');
+const { ExpressParser } = require('./ExpressParser');
+const fs = require('fs');
+
+const input = fs.readFileSync(0, 'utf-8');
+
+const charStream = CharStreams.fromString(input);
+const lexer = new ExpressLexer(charStream);
+const tokenStream = new CommonTokenStream(lexer);
+const parser = new ExpressParser(tokenStream);
+
+const parseTree = parser.syntax();
+----
+
+Generated Visitor classes can be used for mapping from ANTLR4 parse tree classes to custom classes.
+
+== Ruby parser
+
+Generating a pure Ruby parser requires to compile https://github.com/twalmsley/antlr4/tree/ruby_dev[ANTLR4 fork from @twalmsley, ruby_dev branch]. It is compatible with https://github.com/MODLanguage/antlr4-ruby-runtime[antlr4-ruby-runtime] gem.
+
+[source,shell]
+----
+java -jar ~/.m2/repository/org/antlr/antlr4/4.7.3-SNAPSHOT/antlr4-4.7.3-SNAPSHOT-complete.jar \
+    -listener \
+    -visitor \
+    -Dlanguage=Ruby \
+    Express.g4
+----
+
+Generated Parser and Lexer classes can be used as follows:
+
+[source,ruby]
+----
+require './ExpressListener'
+require './ExpressVisitor'
+require './ExpressLexer'
+require './ExpressParser'
+
+input = STDIN.read
+
+char_stream = Antlr4::Runtime::CharStreams.from_string(input, 'String')
+lexer = Express::ExpressLexer.new(char_stream)
+token_stream = Antlr4::Runtime::CommonTokenStream.new(lexer)
+parser = Express::ExpressParser.new(token_stream)
+
+parse_tree = parser.syntax()
+----
+
+However, Ruby performance shows it's not a good fit for parsing long files. The other possibility is to generate C++ parser with Ruby FFI binding. See https://github.com/MODLanguage/antlr4-ruby-runtime/issues/9 for details.
