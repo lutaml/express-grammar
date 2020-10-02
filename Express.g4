@@ -538,7 +538,9 @@ parameterId
 	; // 265
 
 parameterType
-	: generalizedTypes | namedTypes | simpleTypes
+	: generalizedTypes
+	| namedTypes
+	| simpleTypes
 	; // 266
 
 population
