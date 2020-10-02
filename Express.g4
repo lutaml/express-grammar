@@ -119,7 +119,7 @@ assignmentStmt
 	; // 176
 
 attributeDecl
-	: attributeRef
+	: attributeId
 	| redeclaredAttribute
 	; // 177
 
