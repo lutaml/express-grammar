@@ -810,7 +810,7 @@ supertypeTerm
 	; // 323
 
 syntax
-	: schemaDecl+
+	: schemaDecl+ EOF
 	; // 324
 
 term
