@@ -1112,17 +1112,17 @@ SimpleStringLiteral
 
 EmbeddedRemark
 	: '(*' (EmbeddedRemark | .)*? '*)'
-	-> skip
+	-> channel(2)
 	; // 145
 
 TailRemark
 	: '--' ~[\n]*
-	-> skip
+	-> channel(2)
 	; // 149
 
 // Whitespace
 
 Whitespace
 	: [ \t\r\n\u000c]+
-	-> skip
+	-> channel(1)
 	;
