@@ -189,7 +189,7 @@ builtInFunction
 	| TAN
 	| TYPEOF
 	| USEDIN
-	| VALUE
+	| VALUE_
 	| VALUE_IN
 	| VALUE_UNIQUE
 	; // 187
@@ -1031,7 +1031,7 @@ UNKNOWN : U N K N O W N ;
 UNTIL : U N T I L ;
 USE : U S E ;
 USEDIN : U S E D I N ;
-VALUE : V A L U E ;
+VALUE_ : V A L U E ;
 VALUE_IN : V A L U E '_' I N ;
 VALUE_UNIQUE : V A L U E '_' U N I Q U E ;
 VAR : V A R ;
