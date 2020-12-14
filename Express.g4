@@ -391,8 +391,16 @@ groupQualifier
 	; // 232
 
 ifStmt
-	: IF logicalExpression THEN stmt stmt* (ELSE stmt stmt*)? END_IF ';'
+	: IF logicalExpression THEN ifStmtStatements (ELSE ifStmtElseStatements)? END_IF ';'
 	; // 233
+
+ifStmtStatements
+	: stmt stmt*
+	; // custom
+
+ifStmtElseStatements
+	: stmt stmt*
+	; // custom
 
 increment
 	: numericExpression
