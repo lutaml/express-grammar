@@ -672,8 +672,12 @@ ruleLabelId
 	; // 294
 
 schemaBody
-	: interfaceSpecification* constantDecl? (declaration | ruleDecl)*
+	: interfaceSpecification* constantDecl? schemaBodyDeclaration*
 	; // 295
+
+schemaBodyDeclaration
+  : declaration | ruleDecl
+	; // custom
 
 schemaDecl
 	: SCHEMA schemaId schemaVersionId? ';' schemaBody END_SCHEMA ';'
