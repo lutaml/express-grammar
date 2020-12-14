@@ -565,8 +565,12 @@ procedureDecl
 	; // 271
 
 procedureHead
-	: PROCEDURE procedureId ('(' VAR? formalParameter (';' VAR? formalParameter)* ')')? ';'
+	: PROCEDURE procedureId ('(' procedureHeadParameter (';' procedureHeadParameter)* ')')? ';'
 	; // 272
+
+procedureHeadParameter
+	: VAR? formalParameter
+	; // custom
 
 procedureId
 	: SimpleId
