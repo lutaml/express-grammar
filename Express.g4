@@ -741,8 +741,18 @@ simpleFactor
 	| enumerationReference
 	| interval
 	| queryExpression
-	| (unaryOp? ('(' expression ')' | primary))
+	| simpleFactorExpression
+	| simpleFactorUnaryExpression
 	; // 306
+
+simpleFactorExpression
+  : '(' expression ')'
+	| primary
+	; // custom
+
+simpleFactorUnaryExpression
+  : unaryOp simpleFactorExpression
+	; // custom
 
 simpleTypes
 	: binaryType
