@@ -296,8 +296,12 @@ enumerationId
 	; // 210
 
 enumerationItems
-	: '(' enumerationId (',' enumerationId)* ')'
+	: '(' enumerationItem (',' enumerationItem)* ')'
 	; // 211
+
+enumerationItem
+	: enumerationId
+	; // custom
 
 enumerationReference
 	: (typeRef '.')? enumerationRef
