@@ -462,8 +462,12 @@ intervalOp
 	; // 247
 
 inverseAttr
-	: attributeDecl ':' ((SET | BAG) boundSpec? OF)? entityRef FOR (entityRef '.')? attributeRef ';'
+	: attributeDecl ':' inverseAttrType FOR (entityRef '.')? attributeRef ';'
 	; // 248
+
+inverseAttrType
+  : ((SET | BAG) boundSpec? OF)? entityRef
+	; // custom
 
 inverseClause
 	: INVERSE inverseAttr inverseAttr*
